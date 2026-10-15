@@ -4,7 +4,7 @@
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/downloads/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/license/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 
-Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt) и линтинг (Oxlint).
+Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt), линтинг (Oxlint) и проверка файлов перед коммитом.
 
 ## Установка
 
@@ -29,20 +29,32 @@ yarn add -D vite-plus @exer7um/vp-config
 Для использования нужно создать файл `vite.config.ts` с содержимым:
 
 ```ts
-import { defineCheckConfig, defineFmtConfig, defineLintConfig } from "@exer7um/vp-config"
+import {
+  defineCheckConfig,
+  defineFmtConfig,
+  defineLintConfig,
+  defineStagedConfig,
+} from "@exer7um/vp-config"
 import { defineConfig } from "vite-plus"
 
 export default defineConfig({
   check: defineCheckConfig(),
   fmt: defineFmtConfig(),
   lint: defineLintConfig(),
+  staged: defineStagedConfig(),
 })
 ```
 
 Добавить команды для запуска в `package.json`:
 
 ```json
-{ "check": "vp check", "check:fix": "vp check --fix" }
+{ "check": "vp check", "check:fix": "vp check --fix", "prepare": "vp config" }
+```
+
+Для проверки файлов перед коммитом нужно создать файл `.vite-hooks/pre-commit`:
+
+```sh
+vp staged
 ```
 
 Добавить в файл `.vscode/settings.json`:
@@ -79,4 +91,18 @@ defineFmtConfig({ sortTailwindcss: { stylesheet: "./app/assets/css/main.css" } }
 
 ```ts
 defineCheckConfig({ lint: true })
+```
+
+### Проверка перед коммитом
+
+По умолчанию все файлы проверяются через `vp check --fix`. Пока линтинг остается за ESLint, файлы для него передаются глобом: они сначала исправляются ESLint, а потом проверяются через `vp check --fix`.
+
+```ts
+defineStagedConfig({}, { eslint: "*.{vue,js,jsx,cjs,mjs,ts,json,yaml}" })
+```
+
+Правила для разных глобов запускаются параллельно, поэтому дополнительные правила не должны изменять файлы:
+
+```ts
+defineStagedConfig({ "*.ts": "vp test related --run" })
 ```
