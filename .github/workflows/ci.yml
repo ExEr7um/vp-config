@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ExEr7um/workflows/.github/workflows/frontend-build.yml@v0.11.0
+    with:
+      installDevDependencies: true
+  typecheck:
+    uses: ExEr7um/workflows/.github/workflows/frontend-typecheck.yml@v0.11.0
+  test:
+    uses: ExEr7um/workflows/.github/workflows/frontend-test.yml@v0.11.0

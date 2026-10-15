@@ -1,0 +1,20 @@
+name: Релиз проекта
+
+on:
+  workflow_dispatch:
+    inputs:
+      updateType:
+        description: Тип релиза
+        required: true
+        default: patch
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  changelog:
+    uses: ExEr7um/workflows/.github/workflows/changelog.yml@v0.11.0
+    with:
+      updateType: ${{ inputs.updateType }}
