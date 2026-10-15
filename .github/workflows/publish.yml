@@ -1,0 +1,12 @@
+name: Публикация на npm
+
+on:
+  workflow_run:
+    workflows: [Релиз проекта]
+    types: [completed]
+
+jobs:
+  publish:
+    uses: ExEr7um/workflows/.github/workflows/publish-npm.yml@v0.12.1
+    with:
+      build: true
