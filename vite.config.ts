@@ -1,5 +1,9 @@
 import { defineConfig } from "vite-plus"
 
-import { defineFmtConfig } from "./src/index.ts"
+import { defineCheckConfig, defineFmtConfig, defineLintConfig } from "./src/index.ts"
 
-export default defineConfig({ fmt: defineFmtConfig() })
+export default defineConfig({
+  check: defineCheckConfig(),
+  fmt: defineFmtConfig(),
+  lint: defineLintConfig(),
+})
