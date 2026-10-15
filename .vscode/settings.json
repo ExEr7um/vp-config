@@ -1,0 +1,7 @@
+{
+  "cSpell.words": ["defu", "oxfmt", "oxlint", "tsdown"],
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "oxc.fmt.disableNestedConfig": true
+}

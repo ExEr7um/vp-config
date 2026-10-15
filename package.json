@@ -24,6 +24,15 @@
     "dist"
   ],
   "type": "module",
+  "scripts": {
+    "check": "vp check",
+    "check:fix": "vp check --fix",
+    "test": "vp test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "defu": "^6.1.7"
+  },
   "devDependencies": {
     "@types/node": "26.6.5",
     "typescript": "6.0.3",
