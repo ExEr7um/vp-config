@@ -21,8 +21,9 @@ export const defaultStagedConfig = { "*": "vp check --fix" } as const satisfies 
  */
 export function defineStagedConfig(
   rules: StagedConfig = {},
-  { eslint }: StagedOptions = {},
+  options: StagedOptions = {},
 ): StagedConfig {
+  const { eslint } = options
   if (!eslint) return { ...defaultStagedConfig, ...rules }
 
   // Разные глобы запускаются параллельно, поэтому они не должны пересекаться
