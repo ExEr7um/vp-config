@@ -1,0 +1,35 @@
+{
+  "name": "@exer7um/vp-config",
+  "version": "0.0.0",
+  "description": "Конфигурация Vite Plus",
+  "keywords": [
+    "oxfmt",
+    "oxlint",
+    "tsdown",
+    "vite-plus"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Vasily Kuzin",
+    "email": "work@exer7um.com",
+    "url": "https://github.com/ExEr7um/vp-config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExEr7um/vp-config.git"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "6.0.3",
+    "vite-plus": "1.2.0"
+  },
+  "peerDependencies": {
+    "vite-plus": "^1.2.0"
+  }
+}
