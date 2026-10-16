@@ -1,7 +1,13 @@
 {
+  "[javascript]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
   "cSpell.words": ["defu", "oxfmt", "oxlint", "tsdown"],
+  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
+  "eslint.validate": ["javascript", "json", "typescript", "yaml"],
+  "oxc.disableNestedConfig": true,
+  "oxc.enable.oxlint": false,
   "oxc.fmt.disableNestedConfig": true
 }
