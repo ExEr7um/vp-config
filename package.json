@@ -27,6 +27,7 @@
   "scripts": {
     "check": "vp check",
     "check:fix": "vp check --fix",
+    "prepare": "vp config",
     "test": "vp test",
     "typecheck": "tsc --noEmit"
   },
