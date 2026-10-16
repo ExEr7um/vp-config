@@ -4,7 +4,7 @@
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/downloads/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/license/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 
-Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt).
+Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt) и линтинг (Oxlint).
 
 ## Установка
 
@@ -29,10 +29,14 @@ yarn add -D vite-plus @exer7um/vp-config
 Для использования нужно создать файл `vite.config.ts` с содержимым:
 
 ```ts
-import { defineFmtConfig } from "@exer7um/vp-config"
+import { defineCheckConfig, defineFmtConfig, defineLintConfig } from "@exer7um/vp-config"
 import { defineConfig } from "vite-plus"
 
-export default defineConfig({ fmt: defineFmtConfig() })
+export default defineConfig({
+  check: defineCheckConfig(),
+  fmt: defineFmtConfig(),
+  lint: defineLintConfig(),
+})
 ```
 
 Добавить команды для запуска в `package.json`:
@@ -67,4 +71,12 @@ export default defineConfig({ fmt: defineFmtConfig() })
 
 ```ts
 defineFmtConfig({ sortTailwindcss: { stylesheet: "./app/assets/css/main.css" } })
+```
+
+### Линтинг
+
+Линтинг пока отключен в `vp check` через `defineCheckConfig`, правила еще не перенесены из `@exer7um/eslint-config`. Включить его можно так:
+
+```ts
+defineCheckConfig({ lint: true })
 ```
