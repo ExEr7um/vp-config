@@ -79,7 +79,7 @@ vp staged
 }
 ```
 
-Для Zed нужно установить расширение Oxc и добавить в файл `.zed/settings.json`:
+Для Zed нужно установить расширение Oxc и добавить в файл `.zed/settings.json`. Oxfmt запускается из `vite-plus` проекта, иначе Zed скачивает отдельный Oxfmt, который не читает `vite.config.ts`:
 
 ```json
 {
@@ -126,6 +126,7 @@ vp staged
       "prettier": { "allowed": false }
     },
     "JavaScript": {
+      "code_actions_on_format": { "source.fixAll.eslint": true },
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
       "prettier": { "allowed": false }
@@ -151,16 +152,19 @@ vp staged
       "prettier": { "allowed": false }
     },
     "TSX": {
+      "code_actions_on_format": { "source.fixAll.eslint": true },
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
       "prettier": { "allowed": false }
     },
     "TypeScript": {
+      "code_actions_on_format": { "source.fixAll.eslint": true },
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
       "prettier": { "allowed": false }
     },
     "Vue.js": {
+      "code_actions_on_format": { "source.fixAll.eslint": true },
       "format_on_save": "on",
       "formatter": [{ "language_server": { "name": "oxfmt" } }],
       "prettier": { "allowed": false }
@@ -173,6 +177,7 @@ vp staged
   },
   "lsp": {
     "oxfmt": {
+      "binary": { "arguments": ["fmt", "--lsp"], "path": "node_modules/vite-plus/bin/vp" },
       "initialization_options": {
         "settings": { "fmt.configPath": "./vite.config.ts", "run": "onSave" }
       }
