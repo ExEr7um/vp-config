@@ -24,7 +24,10 @@
     "dist"
   ],
   "type": "module",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "scripts": {
+    "build": "vp pack",
     "check": "vp check",
     "check:fix": "vp check --fix",
     "prepare": "vp config",

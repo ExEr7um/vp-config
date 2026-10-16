@@ -4,7 +4,7 @@
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/downloads/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/license/@exer7um/vp-config)](https://npmx.dev/package/@exer7um/vp-config)
 
-Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt), линтинг (Oxlint) и проверка файлов перед коммитом.
+Общая конфигурация [Vite Plus](https://viteplus.dev): форматирование (Oxfmt), линтинг (Oxlint), проверка файлов перед коммитом и сборка библиотек (tsdown).
 
 ## Установка
 
@@ -105,4 +105,21 @@ defineStagedConfig({}, { eslint: "*.{vue,js,jsx,cjs,mjs,ts,json,yaml}" })
 
 ```ts
 defineStagedConfig({ "*.ts": "vp test related --run" })
+```
+
+### Сборка библиотек
+
+`definePackConfig` включает минификацию в `vp pack`. Остальные параметры остаются по умолчанию tsdown: ESM, очистка `dist` перед сборкой и генерация `.d.mts`, если в `package.json` есть поле `types`.
+
+```ts
+import { definePackConfig } from "@exer7um/vp-config"
+import { defineConfig } from "vite-plus"
+
+export default defineConfig({ pack: definePackConfig({ entry: ["index.ts"] }) })
+```
+
+Добавить команду для сборки в `package.json`:
+
+```json
+{ "build": "vp pack" }
 ```
