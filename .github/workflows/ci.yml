@@ -12,6 +12,10 @@ jobs:
       installDevDependencies: true
   check:
     uses: ExEr7um/workflows/.github/workflows/frontend-vp-check.yml@v0.12.1
+  lint:
+    uses: ExEr7um/workflows/.github/workflows/frontend-lint.yml@v0.12.1
+    with:
+      prettier: false
   typecheck:
     uses: ExEr7um/workflows/.github/workflows/frontend-typecheck.yml@v0.12.1
   test:

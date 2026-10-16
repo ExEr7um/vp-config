@@ -30,6 +30,8 @@
     "build": "vp pack",
     "check": "vp check",
     "check:fix": "vp check --fix",
+    "eslint": "eslint --max-warnings=0",
+    "eslint:fix": "eslint --max-warnings=0 --fix",
     "prepare": "vp config",
     "test": "vp test",
     "typecheck": "tsc --noEmit"
@@ -38,6 +40,7 @@
     "defu": "^6.1.7"
   },
   "devDependencies": {
+    "@exer7um/eslint-config": "2.4.0",
     "@types/node": "26.6.5",
     "typescript": "6.0.3",
     "vite-plus": "1.2.0"

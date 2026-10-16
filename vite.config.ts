@@ -13,5 +13,5 @@ export default defineConfig({
   fmt: defineFmtConfig(),
   lint: defineLintConfig(),
   pack: definePackConfig(),
-  staged: defineStagedConfig(),
+  staged: defineStagedConfig({}, { eslint: "*.{js,mjs,ts,json,yml}" }),
 })
