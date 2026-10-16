@@ -37,15 +37,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "defu": "^6.1.7"
+    "defu": "^6.1.7",
+    "vite-plus": "^1.2.0"
   },
   "devDependencies": {
     "@exer7um/eslint-config": "2.4.0",
     "@types/node": "26.6.5",
-    "typescript": "6.0.3",
-    "vite-plus": "1.2.0"
-  },
-  "peerDependencies": {
-    "vite-plus": "^1.2.0"
+    "typescript": "6.0.3"
   }
 }

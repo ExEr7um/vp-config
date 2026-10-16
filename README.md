@@ -9,19 +9,19 @@
 ## Установка
 
 ```bash
-bun add -D vite-plus @exer7um/vp-config
+bun add -D @exer7um/vp-config
 ```
 
 ```bash
-pnpm i -D vite-plus @exer7um/vp-config
+pnpm i -D @exer7um/vp-config
 ```
 
 ```bash
-npm i -D vite-plus @exer7um/vp-config
+npm i -D @exer7um/vp-config
 ```
 
 ```bash
-yarn add -D vite-plus @exer7um/vp-config
+yarn add -D @exer7um/vp-config
 ```
 
 ## Использование
